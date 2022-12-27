@@ -18,11 +18,9 @@ public class QuestionnaireReq {
 
 	private int size;
 
-	private Integer sId;
-
 	private String qustion;
 
-	private String qustionType;
+	private boolean qustionType;
 
 	private String option;
 
@@ -50,8 +48,8 @@ public class QuestionnaireReq {
 		this.size = size;
 	}
 
-	public QuestionnaireReq(String qustion, String qustionType, String option) {
-
+	public QuestionnaireReq(Integer qId, String qustion, boolean qustionType, String option) {
+		this.qId = qId;
 		this.qustion = qustion;
 		this.qustionType = qustionType;
 		this.option = option;
@@ -113,14 +111,6 @@ public class QuestionnaireReq {
 		this.size = size;
 	}
 
-	public Integer getsId() {
-		return sId;
-	}
-
-	public void setsId(Integer sId) {
-		this.sId = sId;
-	}
-
 	public String getQustion() {
 		return qustion;
 	}
@@ -129,11 +119,11 @@ public class QuestionnaireReq {
 		this.qustion = qustion;
 	}
 
-	public String getQustionType() {
+	public boolean isQustionType() {
 		return qustionType;
 	}
 
-	public void setQustionType(String qustionType) {
+	public void setQustionType(boolean qustionType) {
 		this.qustionType = qustionType;
 	}
 

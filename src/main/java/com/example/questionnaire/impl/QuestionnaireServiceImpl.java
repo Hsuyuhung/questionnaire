@@ -152,32 +152,47 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 	}
 
 	@Override
-	public SList createSList(Integer sId, Integer qId, String qustion, String qustionType, String option) {
+	public SList createSList(Integer qId, String qustion, boolean qustionType, String option) {
 
-		
-		
-		SList sList = new SList(sId, qId, qustion, qustionType, option);
-
+		SList sList = new SList(qId, qustion, qustionType, option);
 		return sDao.save(sList);
+		
 	}
 
 	@Override
-	public QuestionnaireRes updateSList(String qustion, String qustionType, String option) {
+	public QuestionnaireRes updateSList(Integer qId, String qustion, boolean qustionType, String option) {
 //		QuestionnaireRes res = new QuestionnaireRes();
-//		Optional<QList> qListOp = qDao.findById(qId);
-//		QList qList = qListOp.get();
+//		Optional<SList> sListOp = sDao.findById(sId);
+//		SList sList = sListOp.get();
 //
-//		if (!qListOp.isPresent()) {
+//		if (!sListOp.isPresent()) {
 //
 //			return new QuestionnaireRes(QuestionnaireRtnCode.SEARCH_WRONG.getMessage());
 //		}
+//		
+//		if (StringUtils.hasText(qustion)) {
+//			sList.setQustion(qustion);
+//		}
+//		
+//		if (StringUtils.hasText(qustionType)) {
+//			sList.setQustionType(qustionType);
+//		}
 //
-//		setParams(qList, qName, qScript, startTime, endTime);
-//		qDao.save(qList);
-//		res.setQlist(qList);
+//		if (StringUtils.hasText(option)) {
+//			sList.setOption(option);
+//		}
+//		
+//		sDao.save(sList);
+//		res.setsList(sList);;
 //		res.setMessage(QuestionnaireRtnCode.UPDATE_SUCCESSFUL.getMessage());
 //		return res;
 		return null;
 
+	}
+
+	@Override
+	public QuestionnaireRes deleteSList(Integer qId, String qustion) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

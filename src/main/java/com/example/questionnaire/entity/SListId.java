@@ -5,21 +5,17 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class SListId implements Serializable {
 
-	private Integer sId;
-
 	private Integer qId;
 
-	public SListId(Integer sId, Integer qId) {
-		this.sId = sId;
+	private String qustion;
+
+	public SListId() {
+
+	}
+
+	public SListId(Integer qId, String qustion) {
 		this.qId = qId;
-	}
-
-	public Integer getsId() {
-		return sId;
-	}
-
-	public void setsId(Integer sId) {
-		this.sId = sId;
+		this.qustion = qustion;
 	}
 
 	public Integer getqId() {
@@ -29,6 +25,12 @@ public class SListId implements Serializable {
 	public void setqId(Integer qId) {
 		this.qId = qId;
 	}
-	
-	
+
+	public String getQustion() {
+		return qustion;
+	}
+
+	public void setQustion(String qustion) {
+		this.qustion = qustion;
+	}
 }

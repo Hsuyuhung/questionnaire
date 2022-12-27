@@ -118,22 +118,26 @@ public class QuestionnaireController {
 	@PostMapping(value = "/api/create_s_list")
 	public QuestionnaireRes createSList(@RequestBody QuestionnaireReq req, HttpSession httpSession) {
 
-		if (!StringUtils.hasText(req.getQustion())) {
-			return new QuestionnaireRes(QuestionnaireRtnCode.DELETE_WRONG.getMessage());
+		if (req.getqId() == null || req.getqId() == 0) {
+			return new QuestionnaireRes(QuestionnaireRtnCode.SEARCH_WRONG.getMessage());
 		}
 
-		if (!StringUtils.hasText(req.getQustionType())) {
-			return new QuestionnaireRes(QuestionnaireRtnCode.DELETE_WRONG.getMessage());
+		if (!StringUtils.hasText(req.getQustion())) {
+			return new QuestionnaireRes(QuestionnaireRtnCode.QUESTION_SCRIPT_EMPTY.getMessage());
+		}
+
+		if (req.isQustionType() != true || req.isQustionType() != false) {
+			return new QuestionnaireRes(QuestionnaireRtnCode.QUESTION_TYPE_EMPTY.getMessage());
 		}
 
 		if (!StringUtils.hasText(req.getOption())) {
-			return new QuestionnaireRes(QuestionnaireRtnCode.DELETE_WRONG.getMessage());
+			return new QuestionnaireRes(QuestionnaireRtnCode.OPTION_EMPTY.getMessage());
 		}
 
-		SList sList = questionnaireService.createSList(req.getsId(), req.getqId(), req.getQustion(),
-				req.getQustionType(), req.getOption());
+		SList sList = questionnaireService.createSList(req.getqId(), req.getQustion(), req.isQustionType(),
+				req.getOption());
 		httpSession.setAttribute("sListInfo", sList);
-		return new QuestionnaireRes(QuestionnaireRtnCode.CREATE_SUCCESSFUL.getMessage(), sList);
-
+		return new QuestionnaireRes(QuestionnaireRtnCode.CREATE_QUESTION_SUCCESSFUL.getMessage(), sList);
 	}
+	
 }

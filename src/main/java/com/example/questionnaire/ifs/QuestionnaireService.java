@@ -29,7 +29,9 @@ public interface QuestionnaireService {
 	
 //	public ResponseResultPage<QList> searchQList(String qName, Integer page, Integer size, String startTime, String endTime);
 
-	 public SList createSList(Integer sId, Integer qId, String qustion, String qustionType, String option);
+	 public SList createSList(Integer qId, String qustion, boolean qustionType, String option);
 	
-	 public QuestionnaireRes updateSList(String qustion, String qustionType, String option);
+	 public QuestionnaireRes updateSList(Integer qId, String qustion, boolean qustionType, String option);
+	 
+	 public QuestionnaireRes deleteSList(Integer qId, String qustion);
 }
