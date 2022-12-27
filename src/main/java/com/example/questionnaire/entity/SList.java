@@ -16,11 +16,11 @@ public class SList {
 	private Integer qId;
 
 	@Id
-	@Column(name = "qustion")
-	private String qustion;
+	@Column(name = "question")
+	private String question;
 
-	@Column(name = "qustion_type")
-	private boolean qustionType;
+	@Column(name = "question_type")
+	private boolean questionType;
 
 	@Column(name = "option")
 	private String option;
@@ -31,8 +31,8 @@ public class SList {
 
 	public SList(Integer qId, String qustion, boolean qustionType, String option) {
 		this.qId = qId;
-		this.qustion = qustion;
-		this.qustionType = qustionType;
+		this.question = qustion;
+		this.questionType = qustionType;
 		this.option = option;
 	}
 
@@ -45,19 +45,19 @@ public class SList {
 	}
 
 	public String getQustion() {
-		return qustion;
+		return question;
 	}
 
 	public void setQustion(String qustion) {
-		this.qustion = qustion;
+		this.question = qustion;
 	}
 
 	public boolean isQustionType() {
-		return qustionType;
+		return questionType;
 	}
 
 	public void setQustionType(boolean qustionType) {
-		this.qustionType = qustionType;
+		this.questionType = qustionType;
 	}
 
 	public String getOption() {
