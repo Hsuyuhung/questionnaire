@@ -1,6 +1,11 @@
+
 package com.example.questionnaire.vo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import com.example.questionnaire.entity.Answer;
 
 public class QuestionnaireReq {
 
@@ -18,11 +23,35 @@ public class QuestionnaireReq {
 
 	private int size;
 
-	private String qustion;
+	private Integer sId;
 
-	private boolean qustionType;
+	private String question;
 
-	private String option;
+	private String questionType;
+
+	private boolean essential;
+
+	private String choice;
+
+	private Integer userId;
+
+	private String name;
+
+	private String gender;
+
+	private String phone;
+
+	private String email;
+
+	private Integer age;
+
+	private String answer;
+
+	private LocalDateTime createTime;
+
+	private List<Integer> qIdList;
+
+	private List<Answer> answers;
 
 	public QuestionnaireReq() {
 
@@ -48,11 +77,28 @@ public class QuestionnaireReq {
 		this.size = size;
 	}
 
-	public QuestionnaireReq(Integer qId, String qustion, boolean qustionType, String option) {
+	public QuestionnaireReq(Integer sId, String question, String questionType, String choice) {
+		this.sId = sId;
+		this.question = question;
+		this.questionType = questionType;
+		this.choice = choice;
+	}
+
+	public QuestionnaireReq(Integer sId, String question, String questionType, boolean essential, String choice) {
+		this.sId = sId;
+		this.question = question;
+		this.questionType = questionType;
+		this.essential = essential;
+		this.choice = choice;
+	}
+
+	public QuestionnaireReq(Integer qId, String name, String gender, String phone, String email, Integer age) {
 		this.qId = qId;
-		this.qustion = qustion;
-		this.qustionType = qustionType;
-		this.option = option;
+		this.name = name;
+		this.gender = gender;
+		this.phone = phone;
+		this.email = email;
+		this.age = age;
 	}
 
 	public Integer getqId() {
@@ -111,27 +157,123 @@ public class QuestionnaireReq {
 		this.size = size;
 	}
 
-	public String getQustion() {
-		return qustion;
+	public Integer getsId() {
+		return sId;
 	}
 
-	public void setQustion(String qustion) {
-		this.qustion = qustion;
+	public void setsId(Integer sId) {
+		this.sId = sId;
 	}
 
-	public boolean isQustionType() {
-		return qustionType;
+	public String getQuestion() {
+		return question;
 	}
 
-	public void setQustionType(boolean qustionType) {
-		this.qustionType = qustionType;
+	public void setQuestion(String question) {
+		this.question = question;
 	}
 
-	public String getOption() {
-		return option;
+	public String getQuestionType() {
+		return questionType;
 	}
 
-	public void setOption(String option) {
-		this.option = option;
+	public void setQuestionType(String questionType) {
+		this.questionType = questionType;
+	}
+
+	public boolean isEssential() {
+		return essential;
+	}
+
+	public void setEssential(boolean essential) {
+		this.essential = essential;
+	}
+
+	public String getChoice() {
+		return choice;
+	}
+
+	public void setChoice(String choice) {
+		this.choice = choice;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public LocalDateTime getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(LocalDateTime createTime) {
+		this.createTime = createTime;
+	}
+
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+
+	public List<Integer> getqIdList() {
+		return qIdList;
+	}
+
+	public void setqIdList(List<Integer> qIdList) {
+		this.qIdList = qIdList;
 	}
 }

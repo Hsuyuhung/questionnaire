@@ -16,11 +16,19 @@ import com.example.questionnaire.entity.QList;
 @Repository
 public interface QDao extends JpaRepository<QList, Integer> {
 	
-	@Modifying
-	@Query(value = "SELECT * FROM`q_list` WHERE `start_time` >=? AND `end_time` <=?", nativeQuery = true)
-	List<QList> findAll(LocalDate startTime, LocalDate endTime);
+//	@Modifying
+//	@Query(value = "SELECT * FROM`q_list` WHERE `start_time` >=? AND `end_time` <=? ORDER BY `start_time` DESC", nativeQuery = true)
+//	List<QList> findByStartTimeAndEndTime(LocalDate startTime, LocalDate endTime);
 	
 	List<QList> findByqNameContaining(String qName);
+	
+	List<QList> findAllByOrderByStartTimeDesc();
+	
+	List<QList> findByqNameContainingAndStartTimeGreaterThanEqualOrderByStartTimeDesc(String qName, LocalDate startTime);
+	
+	List<QList> findByqNameContainingAndEndTimeLessThanEqualOrderByEndTimeDesc(String qName, LocalDate endTime);
+	
+	List<QList> findByqNameContainingAndStartTimeGreaterThanEqualAndEndTimeLessThanEqualOrderByStartTimeDesc(String qName, LocalDate startTime, LocalDate endTime);
 	
 //	@Modifying
 //	@Query(value = "SELECT * FROM`q_list` WHERE `start_time` >=? AND `end_time` <=?", nativeQuery = true)

@@ -9,26 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 @Table(name = "q_list")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class QList {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "q_id")
-	Integer qId;
+	private Integer qId;
 
 	@Column(name = "q_name")
-	String qName;
+	private String qName;
 
 	@Column(name = "q_script")
-	String qScript;
+	private String qScript;
 
 	@Column(name = "start_time")
-	LocalDate startTime;
+	private LocalDate startTime;
 
 	@Column(name = "end_time")
-	LocalDate endTime;
+	private LocalDate endTime;
 
 	public QList() {
 
@@ -39,6 +42,12 @@ public class QList {
 		this.qScript = qScript;
 		this.startTime = startTime;
 		this.endTime = endTime;
+	}
+
+	public QList(String qName, String qScript, LocalDate startTime) {
+		this.qName = qName;
+		this.qScript = qScript;
+		this.startTime = startTime;
 	}
 
 	public Integer getqId() {
